@@ -26,10 +26,15 @@ function setup() {
 function draw() {
 	background(bgcolor);
 	if(currentIndex%2 == 0){
-		equationText += currentIndex + 1 + ' + ';
-		result = Math.pow(currentIndex/2,2);
+		result = Math.pow(currentIndex/2 + 1,2);
+		if(currentIndex/2 < 1){
+			equationText = 1
+		}
+		else{
+			equationText += '+' + (currentIndex + 1);
+		}
 	}
-	text.html(equationText + '=' + result);
+	text.html(equationText + ' = ' + result);
 
 	noStroke()
 	for(var i = 0 ; i < loopnumber; i++){

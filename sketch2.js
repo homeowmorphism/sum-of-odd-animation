@@ -26,7 +26,7 @@ function setup() {
 function draw() {
 	background(bgcolor);
 	if(currentIndex%2 == 0){
-		result = Math.pow(currentIndex/2 + 1,2);
+		result = currentIndex/2 + 1;
 		if(currentIndex/2 < 1){
 			equationText = 1
 		}
@@ -34,7 +34,7 @@ function draw() {
 			equationText += '+' + (currentIndex + 1);
 		}
 	}
-	text.html(equationText + ' = ' + result);
+	text.html(equationText + ' = ' + result + '^2');
 
 	noStroke()
 	for(var i = 0 ; i < loopnumber; i++){

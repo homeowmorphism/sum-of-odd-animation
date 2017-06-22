@@ -25,18 +25,22 @@ function setup() {
 
 function draw() {
 	background(bgcolor);
-	equationText += 2*currentIndex + 1 + ' + '
+	if(currentIndex%2 == 0){
+		equationText += currentIndex + 1 + ' + ';
+		result = Math.pow(currentIndex/2,2);
+	}
+	text.html(equationText + '=' + result);
 
 	noStroke()
 	for(var i = 0 ; i < loopnumber; i++){
 		for(var j = 0 ; j < loopnumber; j++){
-			if(i < currentIndex && j < currentIndex){
+			if(i < currentIndex/2 && j < currentIndex/2){
 				fill(unsaturated);
 			}
-			else if(i == currentIndex && 0 < j && j  <= currentIndex|| j == currentIndex && 0 < i && i  <= currentIndex){
+			else if(i == currentIndex/2 && 0 < j && j  <= currentIndex/2|| j == currentIndex/2 && 0 < i && i  <= currentIndex/2){
 				fill(saturateddark);
 			}
-			else if (i == currentIndex && 0 == j || j ==  currentIndex && i == 0){
+			else if (i == currentIndex/2 && 0 == j || j ==  currentIndex/2 && i == 0){
 				fill(saturatedlight);
 			}
 			else{
